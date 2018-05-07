@@ -68,12 +68,14 @@ class supervisord::params {
           }
         }
       }
+      $run_path          = '/run'
       $unix_socket_group = 'nogroup'
       $install_init      = true
       $executable_path   = '/usr/local/bin'
     }
     default:  {
       $init_defaults     = false
+      $run_path          = '/var/run'
       $unix_socket_group = 'nogroup'
       $install_init      = false
       $executable_path   = '/usr/local/bin'
@@ -105,7 +107,6 @@ class supervisord::params {
   $scl_enabled             = false
   $scl_script              = '/opt/rh/python27/enable'
 
-  $run_path                = '/var/run'
   $pid_file                = 'supervisord.pid'
   $log_path                = '/var/log/supervisor'
   $log_file                = 'supervisord.log'
